@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "experiment-readout-studio"
+version = "0.1.0"
+description = "A/B experiment readout: SRM checks, CUPED, segment corrections, guardrails and ship decisions."
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "statsmodels",
+    "pyarrow",
+    "jinja2",
+]
+
+[project.optional-dependencies]
+app = ["streamlit"]
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+include = ["readout*", "sim*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
