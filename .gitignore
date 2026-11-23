@@ -1,6 +1,21 @@
-# Data (never committed)
-data/raw/
-data/processed/
+# Data (never committed; keep the folder layout)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Generated outputs
+exports/*
+!exports/.gitkeep
+
+# Research background (AI-assisted, not part of the portfolio)
+research_notes/
+reports/
+
+# Secrets and local settings
+.env
+.streamlit/secrets.toml
+.claude/settings.local.json
 
 # Python
 __pycache__/

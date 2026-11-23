@@ -4,6 +4,11 @@ ALPHA = 0.05  # two-sided, primary metrics
 SRM_THRESHOLD = 0.001  # SRM is flagged when p < this
 GUARDRAIL_ALPHA = 0.05  # one-sided, non-inferiority
 
+# Primary (decision) metric per dataset. Assumed "higher is better".
+PRIMARY_METRIC = {
+    "hillstrom": "visit",
+}
+
 # Guardrail margins per dataset and metric.
 # margin_type "relative": margin is a fraction of the control mean (0.10 = 10%).
 # margin_type "absolute": margin is in the metric's own units.

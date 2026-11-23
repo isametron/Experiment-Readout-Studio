@@ -75,15 +75,20 @@ no missing values. CUPED on `visit` removes under 1% of variance there
 (weak covariates), which is expected and not a bug.
 
 ## Status (2026-11-15)
-Built and tested (54 tests, simulation-calibrated): `schema.py`,
+Built and tested (62 tests, simulation-calibrated): `schema.py`,
 `config.py`, `srm.py`, `metrics.py` (means, lift, ratio metrics, Holm),
-`variance_reduction.py`, `guardrails.py`, `decision.py`,
-`loaders/hillstrom.py`, `sim/simulate.py`, `scripts/download_data.py`,
-`scripts/run_hillstrom.py`.
-Still stubs: `segments.py`, `memo.py`, `pipeline.py`, loaders for
-Criteo / ASOS / Upworthy, `app/`, `scripts/export_for_bi.py`,
-`templates/memo.md.j2`. `scripts/run_hillstrom.py` shows the call order
-that `pipeline.py` should wrap.
+`variance_reduction.py`, `guardrails.py`, `decision.py`, `pipeline.py`
+(`run_readout(exp, spec)`; the decision uses the raw Holm-adjusted
+primary effect, CUPED is reported alongside), `loaders/hillstrom.py`,
+`sim/simulate.py`, `scripts/download_data.py`, `scripts/run_hillstrom.py`.
+Still stubs: `segments.py`, `memo.py`, loaders for Criteo / ASOS /
+Upworthy, `app/`, `scripts/export_for_bi.py`, `templates/memo.md.j2`.
+
+Roadmap to Dec 14 (agreed 2026-11-24), one advanced method per dataset:
+ASOS sequential testing (GST + mSPRT vs naive peeking) → Upworthy
+empirical-Bayes / winner's curse / FDR → Criteo CUPAC → memo, MDE +
+false-positive-risk panel, app, README. Check the mSPRT formulas against
+Johari et al. 2022 before implementing.
 
 ## Commands
 - Install: `uv sync`
